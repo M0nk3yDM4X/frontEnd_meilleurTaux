@@ -14,15 +14,15 @@ const TypeOfProperty = ({ page, setPage, setInputState, inputState }) => {
       ...inputState,
       typeOfProperty: event.target.value
     });
-    Cookies.set("type", event.target.value);
     setIsChecked(event.target.value);
+    Cookies.set("type", event.target.value);
     setPage("state");
   };
 
   return (
-    <div>
-      <h1 style={{ backgroundColor: "yellow" }}>TYPE DE BIEN</h1>
-      <div style={{ display: "flex" }}>
+    <div className="pageContent">
+      <h1 className="pageTitle">TYPE DE BIEN</h1>
+      <div className="radioInputContainer">
         <RadioInput
           name={"maison"}
           value={valMaison}

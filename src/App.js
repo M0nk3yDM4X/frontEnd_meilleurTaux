@@ -41,15 +41,26 @@ const App = () => {
     }
   };
 
+  // const memoryCookie = Cookies.get("generalState");
+
   const [inputState, setInputState] = useState(initialState);
 
+  // if (memoryCookie === undefined) {
+  //   setInputState(initialState);
+  //   Cookies.set("generalState", inputState);
+  // } else {
+  //   Cookies.set("generalState", inputState);
+  // }
+
+  console.log(inputState);
+
   return (
-    <div className="App">
+    <div>
       <Router>
-        <div style={{ paddingRight: 50, paddingLeft: 50 }}>
-          <Header />
-          <Switch>
-            <Route path="/">
+        <Header />
+        <Switch>
+          <Route path="/">
+            <div className="wrapper">
               {page === "home" ? (
                 <TypeOfProperty
                   page={page}
@@ -88,9 +99,9 @@ const App = () => {
                 <ContactInformation setPage={setPage} />
               ) : null}
               {page === "summary" ? <Summary /> : null}
-            </Route>
-          </Switch>
-        </div>
+            </div>
+          </Route>
+        </Switch>
       </Router>
     </div>
   );

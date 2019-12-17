@@ -1,37 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
+import Cookies from "js-cookie";
+
+import RadioInput from "../GlobalComponents/RadioInput.js";
+import Footer from "../GlobalComponents/Footer.js";
 
 const UseOfProperty = ({ setPage, inputState, setInputState }) => {
+  const [isChecked, setIsChecked] = useState("");
+
+  const valPrincipal = "Résidence Principale";
+  const valSecondary = "Résidence Secondaire";
+  const valLoc = "Investissement Locatif";
+
+  const handleChange = event => {
+    setInputState({
+      ...inputState,
+      useOfProperty: event.target.value
+    });
+    setIsChecked(event.target.value);
+    Cookies.set("use", event.target.value);
+    setPage("userSituation");
+  };
+
   return (
     <div>
-      <p>USAGE DU BIEN</p>
-      <input
-        type="checkbox"
-        name="residencePrincipale"
-        value={"Résidence Principale"}
-        onChange={event => {
-          setInputState({ ...inputState, useOfProperty: event.target.value });
-          setPage("userSituation");
-        }}
+      <h1 className="pageTitle">USAGE DU BIEN</h1>
+      <div className="radioInputContainer">
+        <RadioInput
+          name={"residencePrincipale"}
+          value={valPrincipal}
+          isChecked={isChecked}
+          func={handleChange}
+          title={valPrincipal}
+        />
+        <RadioInput
+          name={"residenceSecondaire"}
+          value={valSecondary}
+          isChecked={isChecked}
+          func={handleChange}
+          title={valSecondary}
+        />
+        <RadioInput
+          name={"investissementLoc"}
+          value={valLoc}
+          isChecked={isChecked}
+          func={handleChange}
+          title={valLoc}
+        />
+      </div>
+
+      <Footer
+        prevFunc={() => setPage("state")}
+        nextFunc={() => setPage("userSituation")}
       />
-      <input
-        type="checkbox"
-        name="residenceSecondaire"
-        value={"Résidence Secondaire"}
-        onChange={event => {
-          setInputState({ ...inputState, useOfProperty: event.target.value });
-          setPage("userSituation");
-        }}
-      />
-      <input
-        type="checkbox"
-        name="investissementLocatif"
-        value={"Investissement Locatif"}
-        onChange={event => {
-          setInputState({ ...inputState, useOfProperty: event.target.value });
-          setPage("userSituation");
-        }}
-      />
-      <button onClick={() => setPage("state")}>Précédent</button>
     </div>
   );
 };

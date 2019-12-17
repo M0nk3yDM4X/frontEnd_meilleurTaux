@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Cookies from "js-cookie";
 
 import RadioInput from "../GlobalComponents/RadioInput.js";
+import Footer from "../GlobalComponents/Footer.js";
 
 const StateOfProperty = ({ page, setPage, inputState, setInputState }) => {
   const [isChecked, setIsChecked] = useState("");
@@ -21,9 +22,9 @@ const StateOfProperty = ({ page, setPage, inputState, setInputState }) => {
 
   return (
     <div>
-      <h1 style={{ backgroundColor: "yellow" }}>ETAT DU BIEN</h1>
+      <h1 className="pageTitle">ETAT DU BIEN</h1>
 
-      <div style={{ display: "flex" }}>
+      <div className="radioInputContainer">
         <RadioInput
           name={"ancien"}
           value={valOld}
@@ -40,7 +41,10 @@ const StateOfProperty = ({ page, setPage, inputState, setInputState }) => {
         />
       </div>
 
-      <button onClick={() => setPage("home")}>PRECEDENT</button>
+      <Footer
+        prevFunc={() => setPage("home")}
+        nextFunc={() => setPage("use")}
+      />
     </div>
   );
 };
