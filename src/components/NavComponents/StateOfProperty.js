@@ -1,31 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import Cookies from "js-cookie";
 
-const StateOfProperty = ({ setPage, inputState, setInputState }) => {
-  Cookies.set("type", inputState.typeOfProperty);
+import RadioInput from "../GlobalComponents/RadioInput.js";
+
+const StateOfProperty = ({ page, setPage, inputState, setInputState }) => {
+  const [isChecked, setIsChecked] = useState("");
+
+  const valOld = "Ancien";
+  const valNew = "Neuf";
+
+  const handleChange = event => {
+    setInputState({
+      ...inputState,
+      stateOfProperty: event.target.value
+    });
+    setIsChecked(event.target.value);
+    Cookies.set("state", event.target.value);
+    setPage("use");
+  };
 
   return (
     <div>
-      <p>ETAT DU BIEN</p>
-      <input
-        type="checkbox"
-        name="ancien"
-        value={"Ancien"}
-        onChange={event => {
-          setInputState({ ...inputState, stateOfProperty: event.target.value });
-          setPage("use");
-        }}
-      />
-      <input
-        type="checkbox"
-        name="neuf"
-        value={"Neuf"}
-        onChange={event => {
-          setInputState({ ...inputState, stateOfProperty: event.target.value });
-          setPage("use");
-        }}
-      />
-      <button onClick={() => setPage("home")}>Click me</button>
+      <h1 style={{ backgroundColor: "yellow" }}>ETAT DU BIEN</h1>
+
+      <div style={{ display: "flex" }}>
+        <RadioInput
+          name={"ancien"}
+          value={valOld}
+          isChecked={isChecked}
+          func={handleChange}
+          title={valOld}
+        />
+        <RadioInput
+          name={"neuf"}
+          value={valNew}
+          isChecked={isChecked}
+          func={handleChange}
+          title={valNew}
+        />
+      </div>
+
+      <button onClick={() => setPage("home")}>PRECEDENT</button>
     </div>
   );
 };

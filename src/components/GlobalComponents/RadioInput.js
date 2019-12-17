@@ -1,30 +1,20 @@
 import React from "react";
+import Cookies from "js-cookie";
 
-const RadioInput = ({
-  setInputState,
-  inputState,
-  setIsChecked,
-  name,
-  coucou,
-  value,
-  isChecked,
-  title
-}) => {
-  const handleChange = event => {
-    setInputState({
-      ...inputState,
-      key: event.target.value
-    });
-    setIsChecked(event.target.value);
-    // setPage("state");
-  };
+const RadioInput = ({ name, value, isChecked, title, func }) => {
+  const typeCookie = Cookies.get("type");
+  const stateCookie = Cookies.get("state");
+
   return (
     <label
       style={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "blue",
+        borderStyle: "solid",
+        borderWidth: "2px",
+        borderColor: "black",
+        borderRadius: "15px",
         height: "150px",
         marginRight: "20px",
         flex: 1
@@ -34,8 +24,10 @@ const RadioInput = ({
         type="radio"
         name={name}
         value={value}
-        checked={isChecked === { value }}
-        onChange={handleChange()}
+        checked={
+          isChecked === value || value === typeCookie || value === stateCookie
+        }
+        onChange={func}
       />
       {title}
     </label>

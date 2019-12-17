@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Cookies from "js-cookie";
+
 import "./App.css";
 
 import Header from "./components/GlobalComponents/Header.js";
@@ -14,7 +16,16 @@ import ContactInformation from "./components/NavComponents/ContactInformation.js
 import Summary from "./components/NavComponents/Summary.js";
 
 const App = () => {
-  const [page, setPage] = useState("home");
+  const actualPage = Cookies.get("actualPage");
+
+  const [page, setPage] = useState(actualPage);
+
+  if (actualPage === undefined) {
+    setPage("home");
+    Cookies.set("actualPage", page);
+  } else {
+    Cookies.set("actualPage", page);
+  }
 
   const initialState = {
     typeOfProperty: "",
@@ -32,8 +43,6 @@ const App = () => {
 
   const [inputState, setInputState] = useState(initialState);
 
-  // console.log(inputState);
-
   return (
     <div className="App">
       <Router>
@@ -43,6 +52,7 @@ const App = () => {
             <Route path="/">
               {page === "home" ? (
                 <TypeOfProperty
+                  page={page}
                   setPage={setPage}
                   setInputState={setInputState}
                   inputState={inputState}
@@ -50,6 +60,7 @@ const App = () => {
               ) : null}
               {page === "state" ? (
                 <StateOfProperty
+                  page={page}
                   setPage={setPage}
                   setInputState={setInputState}
                   inputState={inputState}
