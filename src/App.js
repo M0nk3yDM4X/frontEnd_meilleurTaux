@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Cookies from "js-cookie";
 
@@ -41,18 +41,29 @@ const App = () => {
     }
   };
 
-  const memoryCookie = Cookies.get("generalState");
+  // const memoryCookie = Cookies.get("generalState");
 
-  const [inputState, setInputState] = useState(memoryCookie);
+  // console.log("memorycookie heeeeere >>>>", memoryCookie);
 
-  if (memoryCookie === undefined) {
-    setInputState(initialState);
-    Cookies.set("generalState", inputState);
-  } else {
-    Cookies.set("generalState", inputState);
-  }
+  const [inputState, setInputState] = useState(inputState);
 
-  console.log(inputState);
+  // if (memoryCookie === undefined) {
+  //   setInputState(initialState);
+  // } else {
+  //   Cookies.set("generalState", inputState);
+  //   // let toto = JSON.stringify(inputState);
+  //   // // console.log("this is toto", toto);
+  //   // let parsed = toto.split("/").join("");
+  //   // // console.log("CECI EST PARSED", parsed);
+  //   // let finalObject = JSON.parse(parsed);
+  //   // // console.log("Final object here >>>", finalObject);
+  // }
+
+  // useEffect(() => {
+  //   Cookies.set("generalState", inputState);
+  // }, [memoryCookie]);
+
+  // console.log("inputState here >>>", inputState);
 
   return (
     <div>
@@ -101,7 +112,13 @@ const App = () => {
                   inputState={inputState}
                 />
               ) : null}
-              {page === "amount" ? <ProjectAmount setPage={setPage} /> : null}
+              {page === "amount" ? (
+                <ProjectAmount
+                  setPage={setPage}
+                  setInputState={setInputState}
+                  inputState={inputState}
+                />
+              ) : null}
               {page === "contactInfos" ? (
                 <ContactInformation setPage={setPage} />
               ) : null}

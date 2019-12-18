@@ -46,7 +46,7 @@ const LocationOfProperty = ({ page, setPage, setInputState, inputState }) => {
     setPage("amount");
   };
 
-  console.log(inputState);
+  // console.log(inputState);
 
   return (
     <div>
@@ -103,6 +103,7 @@ const LocationOfProperty = ({ page, setPage, setInputState, inputState }) => {
             // autoComplete={dropDownArray}
           />
           <select
+            style={{ backgroundColor: "white" }}
             value={zipCode}
             onChange={event => {
               setZipCode(event.target.value);
