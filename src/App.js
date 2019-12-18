@@ -41,16 +41,16 @@ const App = () => {
     }
   };
 
-  // const memoryCookie = Cookies.get("generalState");
+  const memoryCookie = Cookies.get("generalState");
 
-  const [inputState, setInputState] = useState(initialState);
+  const [inputState, setInputState] = useState(memoryCookie);
 
-  // if (memoryCookie === undefined) {
-  //   setInputState(initialState);
-  //   Cookies.set("generalState", inputState);
-  // } else {
-  //   Cookies.set("generalState", inputState);
-  // }
+  if (memoryCookie === undefined) {
+    setInputState(initialState);
+    Cookies.set("generalState", inputState);
+  } else {
+    Cookies.set("generalState", inputState);
+  }
 
   console.log(inputState);
 
@@ -79,6 +79,7 @@ const App = () => {
               ) : null}
               {page === "use" ? (
                 <UseOfProperty
+                  page={page}
                   setPage={setPage}
                   setInputState={setInputState}
                   inputState={inputState}
@@ -86,13 +87,19 @@ const App = () => {
               ) : null}
               {page === "userSituation" ? (
                 <UserSituation
+                  page={page}
                   setPage={setPage}
                   setInputState={setInputState}
                   inputState={inputState}
                 />
               ) : null}
               {page === "location" ? (
-                <LocationOfProperty setPage={setPage} />
+                <LocationOfProperty
+                  page={page}
+                  setPage={setPage}
+                  setInputState={setInputState}
+                  inputState={inputState}
+                />
               ) : null}
               {page === "amount" ? <ProjectAmount setPage={setPage} /> : null}
               {page === "contactInfos" ? (

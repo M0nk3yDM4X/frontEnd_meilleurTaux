@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 import Footer from "../GlobalComponents/Footer.js";
 
 const LocationOfProperty = ({ page, setPage, setInputState, inputState }) => {
+  // const [isChecked, setIsChecked] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [list, setList] = useState([]);
 
@@ -26,7 +28,25 @@ const LocationOfProperty = ({ page, setPage, setInputState, inputState }) => {
     array.push(city);
   }
 
-  console.log(array);
+  const dropDownArray = [];
+
+  // console.log(zipCode);
+
+  for (let i = 0; i < array.length; i++) {
+    dropDownArray.push(<option value={array[i]}> {array[i]}</option>);
+  }
+
+  const handleChange = () => {
+    setInputState({
+      ...inputState,
+      locationOfProperty: zipCode
+    });
+    // setIsChecked(zipCode);
+    Cookies.set("location", zipCode);
+    setPage("amount");
+  };
+
+  console.log(inputState);
 
   return (
     <div>
@@ -80,8 +100,16 @@ const LocationOfProperty = ({ page, setPage, setInputState, inputState }) => {
             onChange={event => {
               setZipCode(event.target.value);
             }}
-            autoComplete={array}
+            // autoComplete={dropDownArray}
           />
+          <select
+            value={zipCode}
+            onChange={event => {
+              setZipCode(event.target.value);
+            }}
+          >
+            {dropDownArray}
+          </select>
         </div>
       </div>
 
@@ -89,9 +117,7 @@ const LocationOfProperty = ({ page, setPage, setInputState, inputState }) => {
         prevFunc={() => {
           setPage("userSituation");
         }}
-        nextFunc={() => {
-          setPage("amount");
-        }}
+        nextFunc={handleChange}
       />
     </div>
   );
