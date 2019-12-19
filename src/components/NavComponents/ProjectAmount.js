@@ -26,8 +26,6 @@ const ProjectAmount = ({ setPage, inputState, setInputState }) => {
         total: total
       }
     });
-    // setIsChecked(zipCode);
-    // Cookies.set("location", zipCode);
     setPage("contactInfos");
   };
 
@@ -48,12 +46,6 @@ const ProjectAmount = ({ setPage, inputState, setInputState }) => {
             value={estimatedAmount}
             onChange={event => {
               setEstimatedAmount(event.target.value);
-              // {
-              //   inputState.useOfProperty === "ancien"
-              //     ? setNotaryFees(event.target.value * 0.0738)
-              //     : setNotaryFees(event.target.value * 0.018);
-              // }
-              // setTotal(event.target.value + works + notaryFees);
             }}
           />
         </div>
@@ -71,7 +63,8 @@ const ProjectAmount = ({ setPage, inputState, setInputState }) => {
           <span>Frais de notaire</span>
           <input
             style={{ marginLeft: "10px", marginTop: "5px", width: "150px" }}
-            value={notaryFees}
+            value={notaryFees.toFixed(2)}
+            readOnly
           />
         </div>
         <div>
@@ -79,6 +72,7 @@ const ProjectAmount = ({ setPage, inputState, setInputState }) => {
           <input
             style={{ marginLeft: "10px", marginTop: "5px", width: "150px" }}
             value={total}
+            readOnly
           />
         </div>
       </div>

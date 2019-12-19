@@ -4,7 +4,14 @@ import Cookies from "js-cookie";
 import RadioInput from "../GlobalComponents/RadioInput.js";
 import Footer from "../GlobalComponents/Footer.js";
 
-const StateOfProperty = ({ page, setPage, inputState, setInputState }) => {
+const StateOfProperty = ({
+  page,
+  setPage,
+  inputState,
+  setInputState
+  // setLoadingProgress,
+  // loadingProgress
+}) => {
   const [isChecked, setIsChecked] = useState("");
 
   const valOld = "Ancien";
@@ -18,6 +25,7 @@ const StateOfProperty = ({ page, setPage, inputState, setInputState }) => {
     setIsChecked(event.target.value);
     Cookies.set("state", event.target.value);
     setPage("use");
+    // setLoadingProgress(loadingProgress + 12.5);
   };
 
   return (

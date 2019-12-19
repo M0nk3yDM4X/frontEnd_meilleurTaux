@@ -4,7 +4,13 @@ import Cookies from "js-cookie";
 import RadioInput from "../GlobalComponents/RadioInput.js";
 import Footer from "../GlobalComponents/Footer.js";
 
-const UserSituation = ({ setPage, inputState, setInputState }) => {
+const UserSituation = ({
+  setPage,
+  inputState,
+  setInputState,
+  loadingProgress,
+  setLoadingProgress
+}) => {
   const [isChecked, setIsChecked] = useState("");
 
   const valTenant = "Locataire";

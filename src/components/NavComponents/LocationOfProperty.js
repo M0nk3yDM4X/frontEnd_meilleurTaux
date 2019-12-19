@@ -33,7 +33,11 @@ const LocationOfProperty = ({ page, setPage, setInputState, inputState }) => {
   // console.log(zipCode);
 
   for (let i = 0; i < array.length; i++) {
-    dropDownArray.push(<option value={array[i]}> {array[i]}</option>);
+    dropDownArray.push(
+      <option key={i} value={array[i]}>
+        {array[i]}
+      </option>
+    );
   }
 
   const handleChange = () => {
@@ -76,7 +80,7 @@ const LocationOfProperty = ({ page, setPage, setInputState, inputState }) => {
           >
             <span>Dans quel pays se situe votre projet ?*</span>
           </div>
-          <input style={{ padding: "5px" }} value={"France"} />
+          <input style={{ padding: "5px" }} defaultValue={"France"} />
         </div>
         <div
           style={{

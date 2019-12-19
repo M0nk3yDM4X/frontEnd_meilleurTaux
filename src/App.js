@@ -22,6 +22,7 @@ const App = () => {
 
   const [page, setPage] = useState(actualPage);
   const [loadingProgress, setLoadingProgress] = useState(0);
+  const [projectId, setProjectId] = useState("");
 
   if (actualPage === undefined) {
     setPage("home");
@@ -41,30 +42,20 @@ const App = () => {
       works: 0,
       notarial: 0,
       total: 0
-    }
+    },
+    email: ""
   };
 
-  // const memoryCookie = Cookies.get("generalState");
+  const memoryCookie = Cookies.getJSON("generalState");
 
-  // console.log("memorycookie heeeeere >>>>", memoryCookie);
+  const [inputState, setInputState] = useState(memoryCookie);
 
-  const [inputState, setInputState] = useState(initialState);
-
-  // if (memoryCookie === undefined) {
-  //   setInputState(initialState);
-  // } else {
-  //   Cookies.set("generalState", inputState);
-  //   // let toto = JSON.stringify(inputState);
-  //   // // console.log("this is toto", toto);
-  //   // let parsed = toto.split("/").join("");
-  //   // // console.log("CECI EST PARSED", parsed);
-  //   // let finalObject = JSON.parse(parsed);
-  //   // // console.log("Final object here >>>", finalObject);
-  // }
-
-  // useEffect(() => {
-  //   Cookies.set("generalState", inputState);
-  // }, [memoryCookie]);
+  if (memoryCookie === undefined) {
+    setInputState(initialState);
+    Cookies.set("generalState", inputState);
+  } else {
+    Cookies.set("generalState", inputState);
+  }
 
   console.log("inputState here >>>", inputState);
 
@@ -125,9 +116,14 @@ const App = () => {
                 />
               ) : null}
               {page === "contactInfos" ? (
-                <ContactInformation setPage={setPage} />
+                <ContactInformation
+                  setPage={setPage}
+                  inputState={inputState}
+                  setInputState={setInputState}
+                  setProjectId={setProjectId}
+                />
               ) : null}
-              {page === "summary" ? <Summary /> : null}
+              {page === "summary" ? <Summary projectId={projectId} /> : null}
             </div>
           </Route>
         </Switch>
