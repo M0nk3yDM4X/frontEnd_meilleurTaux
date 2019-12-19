@@ -3,7 +3,14 @@ import Cookies from "js-cookie";
 
 import RadioInput from "../GlobalComponents/RadioInput.js";
 
-const TypeOfProperty = ({ page, setPage, setInputState, inputState }) => {
+const TypeOfProperty = ({
+  page,
+  setPage,
+  setInputState,
+  inputState,
+  loadingProgress,
+  setLoadingProgress
+}) => {
   const [isChecked, setIsChecked] = useState("");
 
   const valMaison = "Maison";
@@ -17,6 +24,7 @@ const TypeOfProperty = ({ page, setPage, setInputState, inputState }) => {
     setIsChecked(event.target.value);
     Cookies.set("type", event.target.value);
     setPage("state");
+    setLoadingProgress(loadingProgress + 12.5);
   };
 
   return (

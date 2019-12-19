@@ -1,3 +1,26 @@
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+}
+
+.progress {
+  position: relative;
+  height: 20px;
+  width: 350px;
+  border-radius: 50px;
+  border: 1px solid #333;
+  margin: 0 auto;
+}
+
+.filler {
+  background-color: #1da598;
+  height: 100%;
+  border-radius: inherit;
+  transition: width 0.2s ease-in;
+}
+
 .wrapper {
   padding: 0 50px;
 }

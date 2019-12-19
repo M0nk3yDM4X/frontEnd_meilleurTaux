@@ -15,10 +15,13 @@ import ProjectAmount from "./components/NavComponents/ProjectAmount.js";
 import ContactInformation from "./components/NavComponents/ContactInformation.js";
 import Summary from "./components/NavComponents/Summary.js";
 
+import ProgressBar from "./components/GlobalComponents/ProgressBar";
+
 const App = () => {
   const actualPage = Cookies.get("actualPage");
 
   const [page, setPage] = useState(actualPage);
+  const [loadingProgress, setLoadingProgress] = useState(0);
 
   if (actualPage === undefined) {
     setPage("home");
@@ -45,7 +48,7 @@ const App = () => {
 
   // console.log("memorycookie heeeeere >>>>", memoryCookie);
 
-  const [inputState, setInputState] = useState(inputState);
+  const [inputState, setInputState] = useState(initialState);
 
   // if (memoryCookie === undefined) {
   //   setInputState(initialState);
@@ -63,7 +66,7 @@ const App = () => {
   //   Cookies.set("generalState", inputState);
   // }, [memoryCookie]);
 
-  // console.log("inputState here >>>", inputState);
+  console.log("inputState here >>>", inputState);
 
   return (
     <div>
@@ -78,6 +81,8 @@ const App = () => {
                   setPage={setPage}
                   setInputState={setInputState}
                   inputState={inputState}
+                  setLoadingProgress={setLoadingProgress}
+                  loadingProgress={loadingProgress}
                 />
               ) : null}
               {page === "state" ? (
@@ -126,6 +131,7 @@ const App = () => {
             </div>
           </Route>
         </Switch>
+        <ProgressBar loadingProgress={loadingProgress} />
       </Router>
     </div>
   );
