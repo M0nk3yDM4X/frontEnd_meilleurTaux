@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import Footer from "../GlobalComponents/Footer.js";
 
 const ProjectAmount = ({ setPage, inputState, setInputState }) => {
-  const [estimatedAmount, setEstimatedAmount] = useState(0);
-  const [works, setWorks] = useState(0);
+  const [estimatedAmount, setEstimatedAmount] = useState(
+    inputState.amount.estimated
+  );
+  const [works, setWorks] = useState(inputState.amount.works);
 
   let notaryFees = 0;
 

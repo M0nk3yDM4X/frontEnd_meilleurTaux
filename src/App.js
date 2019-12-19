@@ -5,6 +5,8 @@ import Cookies from "js-cookie";
 import "./App.css";
 
 import Header from "./components/GlobalComponents/Header.js";
+import Login from "./components/BackOffice/Login.js";
+import BackOffice from "./components/BackOffice/BackOffice.js";
 
 import TypeOfProperty from "./components/NavComponents/TypeOfProperty.js";
 import StateOfProperty from "./components/NavComponents/StateOfProperty.js";
@@ -64,6 +66,12 @@ const App = () => {
       <Router>
         <Header />
         <Switch>
+          <Route path="/login/back-office">
+            <Login />
+          </Route>
+          <Route path="/back-office">
+            <BackOffice />
+          </Route>
           <Route path="/">
             <div className="wrapper">
               {page === "home" ? (
@@ -127,7 +135,7 @@ const App = () => {
             </div>
           </Route>
         </Switch>
-        <ProgressBar loadingProgress={loadingProgress} />
+        {/* <ProgressBar loadingProgress={loadingProgress} /> */}
       </Router>
     </div>
   );

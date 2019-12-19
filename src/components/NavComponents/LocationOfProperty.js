@@ -5,8 +5,7 @@ import Cookies from "js-cookie";
 import Footer from "../GlobalComponents/Footer.js";
 
 const LocationOfProperty = ({ page, setPage, setInputState, inputState }) => {
-  // const [isChecked, setIsChecked] = useState("");
-  const [zipCode, setZipCode] = useState("");
+  const [zipCode, setZipCode] = useState(inputState.locationOfProperty);
   const [list, setList] = useState([]);
 
   const fetchData = async () => {
@@ -30,8 +29,6 @@ const LocationOfProperty = ({ page, setPage, setInputState, inputState }) => {
 
   const dropDownArray = [];
 
-  // console.log(zipCode);
-
   for (let i = 0; i < array.length; i++) {
     dropDownArray.push(
       <option key={i} value={array[i]}>
@@ -45,12 +42,9 @@ const LocationOfProperty = ({ page, setPage, setInputState, inputState }) => {
       ...inputState,
       locationOfProperty: zipCode
     });
-    // setIsChecked(zipCode);
     Cookies.set("location", zipCode);
     setPage("amount");
   };
-
-  // console.log(inputState);
 
   return (
     <div>
@@ -75,12 +69,23 @@ const LocationOfProperty = ({ page, setPage, setInputState, inputState }) => {
           <div
             style={{
               display: "flex",
-              width: "400px"
+              alignItems: "center",
+              width: "400px",
+              backgroundColor: "yellow",
+              height: "25px",
+              padding: "5px"
             }}
           >
             <span>Dans quel pays se situe votre projet ?*</span>
           </div>
-          <input style={{ padding: "5px" }} defaultValue={"France"} />
+          <input
+            style={{
+              padding: "5px",
+              border: "1px solid black",
+              height: "25px"
+            }}
+            defaultValue={"France"}
+          />
         </div>
         <div
           style={{
@@ -88,33 +93,59 @@ const LocationOfProperty = ({ page, setPage, setInputState, inputState }) => {
             flexDirection: "row",
             padding: "10px 20px",
             alignItems: "center"
+            // backgroundColor: "blue"
           }}
         >
           <div
             style={{
               display: "flex",
-              width: "400px"
+              alignItems: "center",
+              width: "400px",
+              // backgroundColor: "pink",
+              height: "25px",
+              padding: "5px"
             }}
           >
             <span>Ville ou code postal*</span>
           </div>
-          <input
-            style={{ padding: "5px" }}
-            value={zipCode}
-            onChange={event => {
-              setZipCode(event.target.value);
-            }}
-            // autoComplete={dropDownArray}
-          />
-          <select
-            style={{ backgroundColor: "white" }}
-            value={zipCode}
-            onChange={event => {
-              setZipCode(event.target.value);
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center"
             }}
           >
-            {dropDownArray}
-          </select>
+            <input
+              // style={{
+              //   padding: "5px",
+              //   border: "1px solid black",
+              //   height: "25px",
+              //   outline: "none"
+              // }}
+              value={zipCode}
+              onChange={event => {
+                setZipCode(event.target.value);
+              }}
+              // autoComplete={dropDownArray}
+            />
+            <select
+              // style={{
+              //   backgroundColor: "white",
+              //   padding: "5px",
+              //   height: "25px",
+              //   width: "60px",
+              //   borderRadius: "unset",
+              //   border: "none"
+              // }}
+              value={zipCode}
+              onChange={event => {
+                setZipCode(event.target.value);
+              }}
+            >
+              {dropDownArray}
+            </select>
+          </div>
         </div>
       </div>
 

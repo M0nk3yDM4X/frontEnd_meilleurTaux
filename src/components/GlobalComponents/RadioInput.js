@@ -23,7 +23,9 @@ const RadioInput = ({ name, value, isChecked, title, func }) => {
         }
         onChange={func}
       />
-      {title}
+      <span style={{ textTransform: "uppercase", textAlign: "center" }}>
+        {title}
+      </span>
     </label>
   );
 };
