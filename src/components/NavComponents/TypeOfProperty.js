@@ -20,7 +20,6 @@ const TypeOfProperty = ({
     });
 
     setPage("state");
-    setLoadingProgress(loadingProgress + 17);
   };
 
   return (
@@ -48,7 +47,7 @@ const TypeOfProperty = ({
         </div>
       </div>
       <Footer
-        loadingProgress={loadingProgress}
+        loadingProgress={12}
         nextFunc={() => {
           if (inputState.typeOfProperty === "") {
             alert("Vous devez sélectioner un choix");

@@ -10,9 +10,7 @@ const ContactInformation = ({
   setPage,
   setInputState,
   inputState,
-  setProjectId,
-  loadingProgress,
-  setLoadingProgress
+  setProjectId
 }) => {
   const [email, setEmail] = useState("");
   const [acceptMail, setAcceptMail] = useState(false);
@@ -29,7 +27,6 @@ const ContactInformation = ({
   const handleFinish = () => {
     if (acceptMail === true) {
       setPage("summary");
-      setLoadingProgress(0);
       fetchData();
     } else {
       alert("Vous ne passerez pas");
@@ -90,7 +87,7 @@ const ContactInformation = ({
           prevFunc={() => {
             setPage("amount");
           }}
-          loadingProgress={loadingProgress}
+          loadingProgress={93}
           nextFunc={handleFinish}
         />
       </div>

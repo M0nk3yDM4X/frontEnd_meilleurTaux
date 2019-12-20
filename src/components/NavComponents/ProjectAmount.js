@@ -2,13 +2,7 @@ import React, { useState } from "react";
 
 import Footer from "../GlobalComponents/Footer.js";
 
-const ProjectAmount = ({
-  setPage,
-  inputState,
-  setInputState,
-  loadingProgress,
-  setLoadingProgress
-}) => {
+const ProjectAmount = ({ setPage, inputState, setInputState }) => {
   const [estimatedAmount, setEstimatedAmount] = useState(
     inputState.amount.estimated
   );
@@ -35,7 +29,6 @@ const ProjectAmount = ({
           total: total
         }
       });
-      setLoadingProgress(loadingProgress + 17);
       setPage("contactInfos");
     } else {
       alert("Vous devez renseigner le champ montant estimé");
@@ -102,7 +95,7 @@ const ProjectAmount = ({
         prevFunc={() => {
           setPage("location");
         }}
-        loadingProgress={loadingProgress}
+        loadingProgress={81}
         nextFunc={handleChange}
       />
     </>

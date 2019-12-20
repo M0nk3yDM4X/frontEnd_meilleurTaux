@@ -4,13 +4,7 @@ import Cookies from "js-cookie";
 import RadioInput from "../GlobalComponents/RadioInput.js";
 import Footer from "../GlobalComponents/Footer.js";
 
-const UserSituation = ({
-  setPage,
-  inputState,
-  setInputState,
-  loadingProgress,
-  setLoadingProgress
-}) => {
+const UserSituation = ({ setPage, inputState, setInputState }) => {
   const valTenant = "Locataire";
   const valOwner = "Propriétaire";
   const valBeneficiary = "Bénéficiaire d'un logement de fonction";
@@ -23,7 +17,6 @@ const UserSituation = ({
     });
 
     setPage("location");
-    setLoadingProgress(loadingProgress + 17);
   };
 
   return (
@@ -66,7 +59,7 @@ const UserSituation = ({
       </div>
       <Footer
         prevFunc={() => setPage("use")}
-        loadingProgress={loadingProgress}
+        loadingProgress={50}
         nextFunc={() => {
           if (inputState.userSituation === "") {
             alert("Vous devez sélectioner un choix");

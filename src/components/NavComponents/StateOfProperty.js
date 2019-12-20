@@ -3,13 +3,7 @@ import React from "react";
 import RadioInput from "../GlobalComponents/RadioInput.js";
 import Footer from "../GlobalComponents/Footer.js";
 
-const StateOfProperty = ({
-  setPage,
-  inputState,
-  setInputState,
-  setLoadingProgress,
-  loadingProgress
-}) => {
+const StateOfProperty = ({ setPage, inputState, setInputState }) => {
   const valOld = "Ancien";
   const valNew = "Neuf";
 
@@ -20,7 +14,6 @@ const StateOfProperty = ({
     });
 
     setPage("use");
-    setLoadingProgress(loadingProgress + 16);
   };
 
   return (
@@ -49,7 +42,7 @@ const StateOfProperty = ({
       </div>
       <Footer
         prevFunc={() => setPage("home")}
-        loadingProgress={loadingProgress}
+        loadingProgress={24}
         nextFunc={() => {
           if (inputState.stateOfProperty === "") {
             alert("Vous devez sélectioner un choix");

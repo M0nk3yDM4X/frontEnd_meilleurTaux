@@ -18,13 +18,10 @@ import ProjectAmount from "./components/NavComponents/ProjectAmount.js";
 import ContactInformation from "./components/NavComponents/ContactInformation.js";
 import Summary from "./components/NavComponents/Summary.js";
 
-import ProgressBar from "./components/GlobalComponents/ProgressBar";
-
 const App = () => {
   const actualPage = Cookies.get("actualPage");
 
   const [page, setPage] = useState(actualPage);
-  const [loadingProgress, setLoadingProgress] = useState(0);
   const [projectId, setProjectId] = useState("");
 
   if (actualPage === undefined) {
@@ -84,8 +81,6 @@ const App = () => {
                   setPage={setPage}
                   setInputState={setInputState}
                   inputState={inputState}
-                  setLoadingProgress={setLoadingProgress}
-                  loadingProgress={loadingProgress}
                 />
               ) : null}
               {page === "state" ? (
@@ -94,8 +89,6 @@ const App = () => {
                   setPage={setPage}
                   setInputState={setInputState}
                   inputState={inputState}
-                  setLoadingProgress={setLoadingProgress}
-                  loadingProgress={loadingProgress}
                 />
               ) : null}
               {page === "use" ? (
@@ -104,8 +97,6 @@ const App = () => {
                   setPage={setPage}
                   setInputState={setInputState}
                   inputState={inputState}
-                  setLoadingProgress={setLoadingProgress}
-                  loadingProgress={loadingProgress}
                 />
               ) : null}
               {page === "userSituation" ? (
@@ -114,8 +105,6 @@ const App = () => {
                   setPage={setPage}
                   setInputState={setInputState}
                   inputState={inputState}
-                  setLoadingProgress={setLoadingProgress}
-                  loadingProgress={loadingProgress}
                 />
               ) : null}
               {page === "location" ? (
@@ -124,8 +113,6 @@ const App = () => {
                   setPage={setPage}
                   setInputState={setInputState}
                   inputState={inputState}
-                  setLoadingProgress={setLoadingProgress}
-                  loadingProgress={loadingProgress}
                 />
               ) : null}
               {page === "amount" ? (
@@ -133,8 +120,6 @@ const App = () => {
                   setPage={setPage}
                   setInputState={setInputState}
                   inputState={inputState}
-                  setLoadingProgress={setLoadingProgress}
-                  loadingProgress={loadingProgress}
                 />
               ) : null}
               {page === "contactInfos" ? (
@@ -143,8 +128,6 @@ const App = () => {
                   inputState={inputState}
                   setInputState={setInputState}
                   setProjectId={setProjectId}
-                  setLoadingProgress={setLoadingProgress}
-                  loadingProgress={loadingProgress}
                 />
               ) : null}
               {page === "summary" ? (

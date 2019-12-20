@@ -1,10 +1,10 @@
-select::-ms-expand {
+/* select::-ms-expand {
   display: none;
 }
 select {
   -webkit-appearance: none;
   appearance: none;
-}
+} */
 
 .progress {
   position: relative;
@@ -173,9 +173,9 @@ select {
   text-transform: capitalize;
   font-weight: 500;
   font-size: 18px;
-  background-color: white;
+  background-color: lightgrey;
   outline: none;
-  padding: 0;
+  padding: 5px 10px;
   margin-bottom: 5px;
   border: none;
 }
@@ -226,7 +226,6 @@ select {
 
 .footer {
   display: flex;
-  /* background-color: red; */
   height: 15vh;
   justify-content: space-between;
   align-items: center;

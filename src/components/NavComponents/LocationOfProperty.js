@@ -4,13 +4,7 @@ import axios from "axios";
 
 import Footer from "../GlobalComponents/Footer.js";
 
-const LocationOfProperty = ({
-  setPage,
-  setInputState,
-  inputState,
-  loadingProgress,
-  setLoadingProgress
-}) => {
+const LocationOfProperty = ({ setPage, setInputState, inputState }) => {
   const [zipCode, setZipCode] = useState(inputState.locationOfProperty);
   const [list, setList] = useState([]);
 
@@ -33,7 +27,7 @@ const LocationOfProperty = ({
     array.push(city);
   }
 
-  const dropDownArray = [];
+  const dropDownArray = [<option value={undefined}></option>];
 
   for (let i = 0; i < array.length; i++) {
     dropDownArray.push(
@@ -54,7 +48,6 @@ const LocationOfProperty = ({
         locationOfProperty: zipCode
       });
       setPage("amount");
-      setLoadingProgress(loadingProgress + 16);
     } else {
       alert("Vous devez renseigner un code postal ou une ville");
     }
@@ -82,8 +75,9 @@ const LocationOfProperty = ({
                 className="response"
                 value={zipCode}
                 onChange={handleInputChange}
+                placeholder="Renseignez votre code postal"
               />
-              {zipCode === "" ? null : (
+              {zipCode ? (
                 <select
                   className="responseSelect"
                   value={zipCode}
@@ -91,7 +85,7 @@ const LocationOfProperty = ({
                 >
                   {dropDownArray}
                 </select>
-              )}
+              ) : null}
             </div>
           </div>
         </div>
@@ -100,7 +94,7 @@ const LocationOfProperty = ({
         prevFunc={() => {
           setPage("userSituation");
         }}
-        loadingProgress={loadingProgress}
+        loadingProgress={65}
         nextFunc={handleChange}
       />
     </>
