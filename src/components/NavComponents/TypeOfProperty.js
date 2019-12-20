@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Cookies from "js-cookie";
 
 import RadioInput from "../GlobalComponents/RadioInput.js";
+import Footer from "../GlobalComponents/Footer.js";
 
 const TypeOfProperty = ({
   page,
@@ -11,7 +12,7 @@ const TypeOfProperty = ({
   loadingProgress,
   setLoadingProgress
 }) => {
-  const [isChecked, setIsChecked] = useState("");
+  // const [isChecked, setIsChecked] = useState("");
 
   const valMaison = "Maison";
   const valAppart = "Appartement";
@@ -21,32 +22,43 @@ const TypeOfProperty = ({
       ...inputState,
       typeOfProperty: event.target.value
     });
-    setIsChecked(event.target.value);
-    Cookies.set("type", event.target.value);
+    // setIsChecked(event.target.value);
+    // Cookies.set("type", event.target.value);
     setPage("state");
-    setLoadingProgress(loadingProgress + 12.5);
+    setLoadingProgress(loadingProgress + 17);
   };
 
   return (
-    <div className="pageContent">
-      <h1 className="pageTitle">TYPE DE BIEN</h1>
-      <div className="radioInputContainer">
-        <RadioInput
-          name={"maison"}
-          value={valMaison}
-          isChecked={isChecked}
-          func={handleChange}
-          title={valMaison}
-        />
-        <RadioInput
-          name={"appartement"}
-          value={valAppart}
-          isChecked={isChecked}
-          func={handleChange}
-          title={valAppart}
-        />
+    <>
+      <div className="pageContent">
+        <div className="titleContainer">
+          <h1 className="pageTitle">type de bien</h1>
+        </div>
+
+        <div className="radioInputContainer">
+          <RadioInput
+            name={"maison"}
+            value={valMaison}
+            isChecked={inputState.typeOfProperty}
+            func={handleChange}
+            title={valMaison}
+          />
+          <RadioInput
+            name={"appartement"}
+            value={valAppart}
+            isChecked={inputState.typeOfProperty}
+            func={handleChange}
+            title={valAppart}
+          />
+        </div>
       </div>
-    </div>
+      <Footer
+        loadingProgress={loadingProgress}
+        nextFunc={() => {
+          setPage("state");
+        }}
+      />
+    </>
   );
 };
 

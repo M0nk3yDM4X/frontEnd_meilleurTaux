@@ -11,7 +11,7 @@ const UserSituation = ({
   loadingProgress,
   setLoadingProgress
 }) => {
-  const [isChecked, setIsChecked] = useState("");
+  // const [isChecked, setIsChecked] = useState("");
 
   const valTenant = "Locataire";
   const valOwner = "Propriétaire";
@@ -23,51 +23,56 @@ const UserSituation = ({
       ...inputState,
       userSituation: event.target.value
     });
-    setIsChecked(event.target.value);
-    Cookies.set("userSituation", event.target.value);
+    // setIsChecked(event.target.value);
+    // Cookies.set("userSituation", event.target.value);
     setPage("location");
+    setLoadingProgress(loadingProgress + 17);
   };
 
   return (
-    <div>
-      <h1 className="pageTitle">VOTRE SITUATION</h1>
+    <>
+      <div className="pageContent">
+        <div className="titleContainer">
+          <h1 className="pageTitle">votre situation</h1>
+        </div>
 
-      <div className="radioInputContainer">
-        <RadioInput
-          name={"locataire"}
-          value={valTenant}
-          isChecked={isChecked}
-          func={handleChange}
-          title={valTenant}
-        />
-        <RadioInput
-          name={"propriétaire"}
-          value={valOwner}
-          isChecked={isChecked}
-          func={handleChange}
-          title={valOwner}
-        />
-        <RadioInput
-          name={"beneficiaire"}
-          value={valBeneficiary}
-          isChecked={isChecked}
-          func={handleChange}
-          title={valBeneficiary}
-        />
-        <RadioInput
-          name={"hébergé"}
-          value={valHosted}
-          isChecked={isChecked}
-          func={handleChange}
-          title={valHosted}
-        />
+        <div className="radioInputContainer">
+          <RadioInput
+            name={"locataire"}
+            value={valTenant}
+            isChecked={inputState.userSituation}
+            func={handleChange}
+            title={valTenant}
+          />
+          <RadioInput
+            name={"propriétaire"}
+            value={valOwner}
+            isChecked={inputState.userSituation}
+            func={handleChange}
+            title={valOwner}
+          />
+          <RadioInput
+            name={"beneficiaire"}
+            value={valBeneficiary}
+            isChecked={inputState.userSituation}
+            func={handleChange}
+            title={valBeneficiary}
+          />
+          <RadioInput
+            name={"hébergé"}
+            value={valHosted}
+            isChecked={inputState.userSituation}
+            func={handleChange}
+            title={valHosted}
+          />
+        </div>
       </div>
-
       <Footer
         prevFunc={() => setPage("use")}
+        loadingProgress={loadingProgress}
         nextFunc={() => setPage("location")}
       />
-    </div>
+    </>
   );
 };
 

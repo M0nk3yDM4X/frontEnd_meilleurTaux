@@ -2,7 +2,13 @@ import React, { useState } from "react";
 
 import Footer from "../GlobalComponents/Footer.js";
 
-const ProjectAmount = ({ setPage, inputState, setInputState }) => {
+const ProjectAmount = ({
+  setPage,
+  inputState,
+  setInputState,
+  loadingProgress,
+  setLoadingProgress
+}) => {
   const [estimatedAmount, setEstimatedAmount] = useState(
     inputState.amount.estimated
   );
@@ -28,63 +34,74 @@ const ProjectAmount = ({ setPage, inputState, setInputState }) => {
         total: total
       }
     });
+    setLoadingProgress(loadingProgress + 17);
     setPage("contactInfos");
   };
 
   return (
-    <div>
-      <h1 className="pageTitle">MONTANT DU PROJET</h1>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          marginBottom: "20px"
-        }}
-      >
-        <div>
-          <span>Montant estimé de votre acquisition</span>
-          <input
-            style={{ marginLeft: "10px", marginTop: "5px", width: "150px" }}
-            value={estimatedAmount}
-            onChange={event => {
-              setEstimatedAmount(event.target.value);
-            }}
-          />
+    <>
+      <div className="pageContent">
+        <div className="titleContainer">
+          <h1 className="pageTitle">MONTANT DU PROJET</h1>
         </div>
-        <div>
-          <span>Montant estimé des travaux</span>
-          <input
-            style={{ marginLeft: "10px", marginTop: "5px", width: "150px" }}
-            value={works}
-            onChange={event => {
-              setWorks(event.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <span>Frais de notaire</span>
-          <input
-            style={{ marginLeft: "10px", marginTop: "5px", width: "150px" }}
-            value={notaryFees.toFixed(2)}
-            readOnly
-          />
-        </div>
-        <div>
-          <span>Budget total estimé du projet</span>
-          <input
-            style={{ marginLeft: "10px", marginTop: "5px", width: "150px" }}
-            value={total}
-            readOnly
-          />
+
+        <div className="answersContainer">
+          <div className="answersInputContainerEven">
+            <div className="questionContainer">
+              <span>Montant estimé de votre acquisition</span>
+            </div>
+            <input
+              type="Number"
+              className="response"
+              value={estimatedAmount}
+              onChange={event => {
+                setEstimatedAmount(event.target.value);
+              }}
+            />
+            €
+          </div>
+          <div className="answersInputContainerOdd">
+            <div className="questionContainer">
+              <span>Montant estimé des travaux</span>
+            </div>
+            <input
+              className="response"
+              type="Number"
+              value={works}
+              onChange={event => {
+                setWorks(event.target.value);
+              }}
+            />
+            €
+          </div>
+          <div className="answersInputContainerEven">
+            <div className="questionContainer">
+              <span>Frais de notaire</span>
+            </div>
+            <input
+              className="response"
+              type="Number"
+              value={notaryFees.toFixed(0)}
+              readOnly
+            />
+            €
+          </div>
+          <div className="answersInputContainerOdd">
+            <div className="questionContainer">
+              <span>Budget total estimé du projet</span>
+            </div>
+            <input className="response" type="Number" value={total} readOnly />€
+          </div>
         </div>
       </div>
       <Footer
         prevFunc={() => {
           setPage("location");
         }}
+        loadingProgress={loadingProgress}
         nextFunc={handleChange}
       />
-    </div>
+    </>
   );
 };
 

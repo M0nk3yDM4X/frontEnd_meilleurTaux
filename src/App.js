@@ -5,8 +5,8 @@ import Cookies from "js-cookie";
 import "./App.css";
 
 import Header from "./components/GlobalComponents/Header.js";
-import Login from "./components/BackOffice/Login.js";
-import BackOffice from "./components/BackOffice/BackOffice.js";
+import Login from "./containers/Login.js";
+import BackOffice from "./containers/BackOffice.js";
 
 import TypeOfProperty from "./components/NavComponents/TypeOfProperty.js";
 import StateOfProperty from "./components/NavComponents/StateOfProperty.js";
@@ -90,6 +90,8 @@ const App = () => {
                   setPage={setPage}
                   setInputState={setInputState}
                   inputState={inputState}
+                  setLoadingProgress={setLoadingProgress}
+                  loadingProgress={loadingProgress}
                 />
               ) : null}
               {page === "use" ? (
@@ -98,6 +100,8 @@ const App = () => {
                   setPage={setPage}
                   setInputState={setInputState}
                   inputState={inputState}
+                  setLoadingProgress={setLoadingProgress}
+                  loadingProgress={loadingProgress}
                 />
               ) : null}
               {page === "userSituation" ? (
@@ -106,6 +110,8 @@ const App = () => {
                   setPage={setPage}
                   setInputState={setInputState}
                   inputState={inputState}
+                  setLoadingProgress={setLoadingProgress}
+                  loadingProgress={loadingProgress}
                 />
               ) : null}
               {page === "location" ? (
@@ -114,6 +120,8 @@ const App = () => {
                   setPage={setPage}
                   setInputState={setInputState}
                   inputState={inputState}
+                  setLoadingProgress={setLoadingProgress}
+                  loadingProgress={loadingProgress}
                 />
               ) : null}
               {page === "amount" ? (
@@ -121,6 +129,8 @@ const App = () => {
                   setPage={setPage}
                   setInputState={setInputState}
                   inputState={inputState}
+                  setLoadingProgress={setLoadingProgress}
+                  loadingProgress={loadingProgress}
                 />
               ) : null}
               {page === "contactInfos" ? (
@@ -129,6 +139,8 @@ const App = () => {
                   inputState={inputState}
                   setInputState={setInputState}
                   setProjectId={setProjectId}
+                  setLoadingProgress={setLoadingProgress}
+                  loadingProgress={loadingProgress}
                 />
               ) : null}
               {page === "summary" ? <Summary projectId={projectId} /> : null}

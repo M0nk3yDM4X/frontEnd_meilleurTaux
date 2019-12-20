@@ -7,11 +7,11 @@ import Footer from "../GlobalComponents/Footer.js";
 const UseOfProperty = ({
   setPage,
   inputState,
-  setInputState
-  // setLoadingProgress,
-  // loadingProgress
+  setInputState,
+  setLoadingProgress,
+  loadingProgress
 }) => {
-  const [isChecked, setIsChecked] = useState("");
+  // const [isChecked, setIsChecked] = useState("");
 
   const valPrincipal = "Résidence Principale";
   const valSecondary = "Résidence Secondaire";
@@ -22,44 +22,49 @@ const UseOfProperty = ({
       ...inputState,
       useOfProperty: event.target.value
     });
-    setIsChecked(event.target.value);
-    Cookies.set("use", event.target.value);
+    // setIsChecked(event.target.value);
+    // Cookies.set("use", event.target.value);
     setPage("userSituation");
-    // setLoadingProgress(loadingProgress + 12.5);
+    setLoadingProgress(loadingProgress + 17);
   };
 
   return (
-    <div>
-      <h1 className="pageTitle">USAGE DU BIEN</h1>
-      <div className="radioInputContainer">
-        <RadioInput
-          name={"residencePrincipale"}
-          value={valPrincipal}
-          isChecked={isChecked}
-          func={handleChange}
-          title={valPrincipal}
-        />
-        <RadioInput
-          name={"residenceSecondaire"}
-          value={valSecondary}
-          isChecked={isChecked}
-          func={handleChange}
-          title={valSecondary}
-        />
-        <RadioInput
-          name={"investissementLoc"}
-          value={valLoc}
-          isChecked={isChecked}
-          func={handleChange}
-          title={valLoc}
-        />
-      </div>
+    <>
+      <div className="pageContent">
+        <div className="titleContainer">
+          <h1 className="pageTitle">usage du bien</h1>
+        </div>
+        <div className="radioInputContainer">
+          <RadioInput
+            name={"residencePrincipale"}
+            value={valPrincipal}
+            isChecked={inputState.useOfProperty}
+            func={handleChange}
+            title={valPrincipal}
+          />
 
+          <RadioInput
+            name={"residenceSecondaire"}
+            value={valSecondary}
+            isChecked={inputState.useOfProperty}
+            func={handleChange}
+            title={valSecondary}
+          />
+          <RadioInput
+            name={"investissementLoc"}
+            value={valLoc}
+            isChecked={inputState.useOfProperty}
+            func={handleChange}
+            title={valLoc}
+          />
+        </div>
+      </div>
       <Footer
         prevFunc={() => setPage("state")}
+        loadingProgress={loadingProgress}
         nextFunc={() => setPage("userSituation")}
       />
-    </div>
+    </>
   );
 };
 

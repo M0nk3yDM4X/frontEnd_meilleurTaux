@@ -13,7 +13,9 @@ const Header = () => {
             alignItems: "flex-start"
           }}
         >
-          <img className="logo" src={Logo} alt="meilleur-taux" />
+          <Link to="/">
+            <img className="logo" src={Logo} alt="meilleur-taux" />
+          </Link>
           <span>Crédit immobilier: 5mn pour obtenir le meilleur taux</span>
         </div>
         <div>

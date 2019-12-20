@@ -1,9 +1,10 @@
-/* select {
+select::-ms-expand {
+  display: none;
+}
+select {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  text-indent: 1px;
-  text-overflow: "";
-} */
+  appearance: none;
+}
 
 .progress {
   position: relative;
@@ -28,9 +29,9 @@
 .header {
   display: flex;
   align-items: center;
-  /* width: 100%; */
   height: 15vh;
   border-bottom: 1px solid lightgrey;
+  margin-bottom: 2vh;
 }
 
 .wrapMyHeader {
@@ -47,20 +48,25 @@
 }
 
 .pageContent {
-  height: 100%;
-  width: 100%;
+  height: 35vh;
+}
+
+.titleContainer {
+  margin-bottom: 5vh;
+  padding-left: 5px;
 }
 
 .pageTitle {
-  color: orange;
+  color: #f49e25;
   font-weight: 800;
+  margin: 0;
+  text-transform: uppercase;
 }
 
 .radioInputContainer {
   display: flex;
-  margin-bottom: 2rem;
   justify-content: space-between;
-  padding: 10px 0;
+  width: 100%;
 }
 
 .radioInput {
@@ -71,25 +77,193 @@
   border: 1px solid lightgrey;
   border-radius: 15px;
   height: 150px;
-  padding: 15px 0;
-  margin: 0 10px;
   box-shadow: 0px 5px lightgrey;
   font-weight: 900;
+  margin: 0 5px;
+}
+
+.radioInputChecked {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid lightgrey;
+  border-radius: 15px;
+  height: 150px;
+  box-shadow: 0px 5px lightgrey;
+  font-weight: 900;
+  margin: 0 5px;
+  background-color: #f49e25;
 }
 
 .radioInput:hover {
-  background-color: orange;
+  background-color: #f49e25;
+}
+
+.radioInputCheck {
+  margin: 0;
 }
 
 .radioInputTitle {
   font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  margin-left: 5px;
+}
+.radioInputTitleChecked {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  margin-left: 5px;
+  color: white;
+}
+
+.answersContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.answersInputContainerEven {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: lightGrey;
+  padding: 10px 20px;
+}
+.answersInputContainerOdd {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.questionContainer {
+  display: flex;
+  align-items: center;
+  width: 400px;
+  height: 25px;
+  padding: 5px;
+}
+
+.responseContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.response {
+  width: 295px;
+  font-family: Oswald;
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 18px;
+  background-color: white;
+  border: 1px solid #f6b04d;
+  box-shadow: 0px 2px #f5b14e;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 4px;
+  margin-right: 4px;
+}
+
+.responseSelect {
+  width: 317px;
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 18px;
+  background-color: white;
+  outline: none;
+  padding: 0;
+  margin-bottom: 5px;
+  border: none;
+}
+
+.heroContactContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.heroMessageContainer {
+  display: flex;
+  background-color: orange;
+  height: 250px;
+  width: 250px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.heroMessage {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.heroImage {
+  height: 300px;
+  width: 600px;
+  object-fit: contain;
+}
+
+.emailInput {
+  width: 295px;
+  font-family: Oswald;
+  font-weight: 500;
+  font-size: 18px;
+  background-color: white;
+  border: 1px solid #f6b04d;
+  box-shadow: 0px 2px #f5b14e;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 4px;
+  margin-right: 4px;
 }
 
 .footer {
   display: flex;
-  margin-top: 16px;
-  /* background-color: red; */
+  background-color: red;
+  height: 15vh;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+}
+
+.tableLinesContainer {
+  display: flex;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-bottom: 5px;
+}
+
+.tableLines {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  width: 200px;
+  text-align: center;
+  font-weight: 400;
+}
+
+.tableLineContainer {
+  display: flex;
+  background-color: #f1f1f1;
+  border: 1px solid black;
+  margin-bottom: 5px;
+}
+
+.tableLine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  width: 200px;
+  text-align: center;
+  color: #f49e25;
+  font-weight: 900;
 }

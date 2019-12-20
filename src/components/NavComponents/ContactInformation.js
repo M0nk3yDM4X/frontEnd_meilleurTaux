@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Cookies from "js-cookie";
 
 import Visuel from "../../images/visuel.jpg";
 import Footer from "../GlobalComponents/Footer.js";
@@ -8,7 +9,9 @@ const ContactInformation = ({
   setPage,
   setInputState,
   inputState,
-  setProjectId
+  setProjectId,
+  loadingProgress,
+  setLoadingProgress
 }) => {
   const [email, setEmail] = useState("");
   const [acceptMail, setAcceptMail] = useState(false);
@@ -23,99 +26,75 @@ const ContactInformation = ({
   };
 
   const handleChange = () => {
+    Cookies.remove("actualPage");
+    Cookies.remove("generalState");
+
     setPage("summary");
+
+    setLoadingProgress(0);
 
     fetchData();
   };
 
   return (
-    <div>
-      <h1 className="pageTitle">VOS COORDONNÉES</h1>
-      <div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-evenly",
-            alignItems: "center"
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              backgroundColor: "orange",
-              height: "250px",
-              width: "250px",
-              justifyContent: "center",
-              alignItems: "center",
-              textAlign: "center",
-              padding: "10px"
-            }}
-          >
-            <span
-              style={{ fontSize: "24px", fontWeight: "bold", color: "white" }}
-            >
-              Un devis vous sera envoyé par mail avec un récapitulatif de votre
-              demande.
-            </span>
+    <>
+      <div className="pageContent">
+        <div className="titleContainer">
+          <h1 className="pageTitle">vos coordonnées</h1>
+        </div>
+
+        <div>
+          <div className="heroContactContainer">
+            <div className="heroMessageContainer">
+              <span className="heroMessage">
+                Un devis vous sera envoyé par mail avec un récapitulatif de
+                votre demande.
+              </span>
+            </div>
+            <img className="heroImage" src={Visuel} alt="heroImage" />
           </div>
-          <img
-            src={Visuel}
-            style={{ height: "300px", width: "600px", objectFit: "contain" }}
-          />
+          <div className="answersInputContainerEven">
+            <div className="questionContainer">
+              <span>Adresse e-mail emprunteur*</span>
+            </div>
+            <input
+              placeholder="Renseignez votre e-mail ici"
+              className="emailInput"
+              onChange={event => {
+                setEmail(event.target.value);
+                setInputState({
+                  ...inputState,
+                  email: event.target.value
+                });
+              }}
+            />
+          </div>
+          <div className="answersInputContainerOdd">
+            <input
+              style={{ margin: "0", padding: "5px" }}
+              type="checkbox"
+              value={acceptMail}
+              onChange={() => {
+                setAcceptMail(!acceptMail);
+              }}
+            />
+            <div className="questionContainer">
+              <span>
+                J'accepte de recevoir par mail des propositions de MeilleurTaux.
+              </span>
+            </div>
+          </div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            backgroundColor: "grey",
-            padding: "10px"
+        <Footer
+          prevFunc={() => {
+            setPage("amount");
           }}
-        >
-          <span>Adresse e-mail emprunteur*</span>
-          <input
-            placeholder="Renseignez votre e-mail ici"
-            style={{
-              width: "200px",
-              marginLeft: "100px",
-              fontFamily: "Oswald",
-              padding: "5px"
-            }}
-            onChange={event => {
-              setEmail(event.target.value);
-              setInputState({
-                ...inputState,
-                email: event.target.value
-              });
-            }}
-          />
-        </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            padding: "10px"
-          }}
-        >
-          <input
-            style={{ margin: "0" }}
-            type="checkbox"
-            value={acceptMail}
-            onChange={() => {
-              setAcceptMail(!acceptMail);
-            }}
-          />
-          <span style={{ marginLeft: "5px" }}>
-            J'accepte de recevoir par mail des propositions de MeilleurTaux.
-          </span>
-        </div>
+          loadingProgress={loadingProgress}
+          acceptMail={acceptMail}
+          nextFunc={handleChange}
+        />
       </div>
-      <Footer
-        prevFunc={() => {
-          setPage("amount");
-        }}
-        nextFunc={handleChange}
-      />
-    </div>
+    </>
   );
 };
 
