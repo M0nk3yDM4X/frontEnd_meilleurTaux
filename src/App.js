@@ -7,6 +7,7 @@ import "./App.css";
 import Header from "./components/GlobalComponents/Header.js";
 import Login from "./containers/Login.js";
 import BackOffice from "./containers/BackOffice.js";
+import DemandDetails from "./containers/DemandDetails.js";
 
 import TypeOfProperty from "./components/NavComponents/TypeOfProperty.js";
 import StateOfProperty from "./components/NavComponents/StateOfProperty.js";
@@ -68,6 +69,9 @@ const App = () => {
         <Switch>
           <Route path="/login/back-office">
             <Login />
+          </Route>
+          <Route path="/details/:id">
+            <DemandDetails />
           </Route>
           <Route path="/back-office">
             <BackOffice />
@@ -143,7 +147,9 @@ const App = () => {
                   loadingProgress={loadingProgress}
                 />
               ) : null}
-              {page === "summary" ? <Summary projectId={projectId} /> : null}
+              {page === "summary" ? (
+                <Summary setPage={setPage} projectId={projectId} />
+              ) : null}
             </div>
           </Route>
         </Switch>

@@ -11,8 +11,6 @@ const UserSituation = ({
   loadingProgress,
   setLoadingProgress
 }) => {
-  // const [isChecked, setIsChecked] = useState("");
-
   const valTenant = "Locataire";
   const valOwner = "Propriétaire";
   const valBeneficiary = "Bénéficiaire d'un logement de fonction";
@@ -23,8 +21,7 @@ const UserSituation = ({
       ...inputState,
       userSituation: event.target.value
     });
-    // setIsChecked(event.target.value);
-    // Cookies.set("userSituation", event.target.value);
+
     setPage("location");
     setLoadingProgress(loadingProgress + 17);
   };
@@ -70,7 +67,13 @@ const UserSituation = ({
       <Footer
         prevFunc={() => setPage("use")}
         loadingProgress={loadingProgress}
-        nextFunc={() => setPage("location")}
+        nextFunc={() => {
+          if (inputState.userSituation === "") {
+            alert("Vous devez sélectioner un choix");
+          } else {
+            setPage("location");
+          }
+        }}
       />
     </>
   );

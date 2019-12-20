@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Cookies from "js-cookie";
+import React from "react";
 
 import RadioInput from "../GlobalComponents/RadioInput.js";
 import Footer from "../GlobalComponents/Footer.js";
@@ -11,8 +10,6 @@ const StateOfProperty = ({
   setLoadingProgress,
   loadingProgress
 }) => {
-  // const [isChecked, setIsChecked] = useState("");
-
   const valOld = "Ancien";
   const valNew = "Neuf";
 
@@ -21,8 +18,7 @@ const StateOfProperty = ({
       ...inputState,
       stateOfProperty: event.target.value
     });
-    // setIsChecked(event.target.value);
-    // Cookies.set("state", event.target.value);
+
     setPage("use");
     setLoadingProgress(loadingProgress + 16);
   };
@@ -54,7 +50,13 @@ const StateOfProperty = ({
       <Footer
         prevFunc={() => setPage("home")}
         loadingProgress={loadingProgress}
-        nextFunc={() => setPage("use")}
+        nextFunc={() => {
+          if (inputState.stateOfProperty === "") {
+            alert("Vous devez sélectioner un choix");
+          } else {
+            setPage("use");
+          }
+        }}
       />
     </>
   );

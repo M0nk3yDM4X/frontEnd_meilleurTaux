@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
+import Url from "../url.js";
 import TableLine from "../components/BackOffice/TableLine.js";
 
 const BackOffice = () => {
@@ -8,9 +10,7 @@ const BackOffice = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = async () => {
-    const response = await axios.get(
-      "http://localhost:4000/immoProject/readAll"
-    );
+    const response = await axios.get(Url.url + "/immoProject/readAll");
     console.log(response.data);
     setData(response.data);
     setIsLoading(false);
@@ -48,13 +48,15 @@ const BackOffice = () => {
           </div>
           {data.map((element, index) => {
             return (
-              <div className="tableLinesContainer">
-                <TableLine value={element.locationOfProperty} />
-                <TableLine value={element.email} />
-                <TableLine value={element.typeOfProperty} />
-                <TableLine value={element.stateOfProperty} />
-                <TableLine value={element.amount.total} number={true} />
-              </div>
+              <Link to={"/details/" + element._id}>
+                <div className="tableLinesContainer">
+                  <TableLine value={element.locationOfProperty} />
+                  <TableLine value={element.email} />
+                  <TableLine value={element.typeOfProperty} />
+                  <TableLine value={element.stateOfProperty} />
+                  <TableLine value={element.amount.total} number={true} />
+                </div>
+              </Link>
             );
           })}
         </div>

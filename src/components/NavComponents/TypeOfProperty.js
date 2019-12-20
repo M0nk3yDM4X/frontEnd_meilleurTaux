@@ -1,19 +1,15 @@
-import React, { useState } from "react";
-import Cookies from "js-cookie";
+import React from "react";
 
 import RadioInput from "../GlobalComponents/RadioInput.js";
 import Footer from "../GlobalComponents/Footer.js";
 
 const TypeOfProperty = ({
-  page,
   setPage,
   setInputState,
   inputState,
   loadingProgress,
   setLoadingProgress
 }) => {
-  // const [isChecked, setIsChecked] = useState("");
-
   const valMaison = "Maison";
   const valAppart = "Appartement";
 
@@ -22,8 +18,7 @@ const TypeOfProperty = ({
       ...inputState,
       typeOfProperty: event.target.value
     });
-    // setIsChecked(event.target.value);
-    // Cookies.set("type", event.target.value);
+
     setPage("state");
     setLoadingProgress(loadingProgress + 17);
   };
@@ -55,7 +50,11 @@ const TypeOfProperty = ({
       <Footer
         loadingProgress={loadingProgress}
         nextFunc={() => {
-          setPage("state");
+          if (inputState.typeOfProperty === "") {
+            alert("Vous devez sélectioner un choix");
+          } else {
+            setPage("state");
+          }
         }}
       />
     </>

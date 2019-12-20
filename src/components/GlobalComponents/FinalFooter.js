@@ -1,17 +1,8 @@
 import React from "react";
 
-import ProgressBar from "./ProgressBar.js";
-
-const Footer = ({ prevFunc, nextFunc, loadingProgress }) => {
+const FinalFooter = ({ finish }) => {
   return (
     <div className="footer">
-      <span
-        style={{ textDecoration: "underline", cursor: "pointer" }}
-        onClick={prevFunc}
-      >
-        Précédent
-      </span>
-      <ProgressBar loadingProgress={loadingProgress} />
       <div
         style={{
           display: "flex",
@@ -24,10 +15,10 @@ const Footer = ({ prevFunc, nextFunc, loadingProgress }) => {
           cursor: "pointer"
         }}
       >
-        <span onClick={nextFunc}>Suivant</span>
+        <span onClick={finish}>Retournez à la page d'accueil</span>
       </div>
     </div>
   );
 };
 
-export default Footer;
+export default FinalFooter;

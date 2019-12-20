@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import Cookies from "js-cookie";
 
 import Visuel from "../../images/visuel.jpg";
 import Footer from "../GlobalComponents/Footer.js";
 import axios from "axios";
+
+import Url from "../../url.js";
 
 const ContactInformation = ({
   setPage,
@@ -19,21 +20,20 @@ const ContactInformation = ({
   console.log("accepting email", acceptMail);
 
   const fetchData = async () => {
-    const response = await axios.post("http://localhost:4000/immoProject/new", {
+    const response = await axios.post(Url.url + "/immoProject/new", {
       ...inputState
     });
     await setProjectId(response.data._id);
   };
 
-  const handleChange = () => {
-    Cookies.remove("actualPage");
-    Cookies.remove("generalState");
-
-    setPage("summary");
-
-    setLoadingProgress(0);
-
-    fetchData();
+  const handleFinish = () => {
+    if (acceptMail === true) {
+      setPage("summary");
+      setLoadingProgress(0);
+      fetchData();
+    } else {
+      alert("Vous ne passerez pas");
+    }
   };
 
   return (
@@ -85,13 +85,13 @@ const ContactInformation = ({
             </div>
           </div>
         </div>
+
         <Footer
           prevFunc={() => {
             setPage("amount");
           }}
           loadingProgress={loadingProgress}
-          acceptMail={acceptMail}
-          nextFunc={handleChange}
+          nextFunc={handleFinish}
         />
       </div>
     </>

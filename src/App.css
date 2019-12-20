@@ -16,7 +16,7 @@ select {
 }
 
 .filler {
-  background-color: #1da598;
+  background-color: #f49e25;
   height: 100%;
   border-radius: inherit;
   transition: width 0.2s ease-in;
@@ -226,7 +226,7 @@ select {
 
 .footer {
   display: flex;
-  background-color: red;
+  /* background-color: red; */
   height: 15vh;
   justify-content: space-between;
   align-items: center;

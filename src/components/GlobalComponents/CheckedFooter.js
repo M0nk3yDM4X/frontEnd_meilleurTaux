@@ -2,7 +2,7 @@ import React from "react";
 
 import ProgressBar from "./ProgressBar.js";
 
-const Footer = ({ prevFunc, nextFunc, loadingProgress }) => {
+const CheckedFooter = ({ prevFunc, nextFunc, loadingProgress }) => {
   return (
     <div className="footer">
       <span
@@ -30,4 +30,4 @@ const Footer = ({ prevFunc, nextFunc, loadingProgress }) => {
   );
 };
 
-export default Footer;
+export default CheckedFooter;
