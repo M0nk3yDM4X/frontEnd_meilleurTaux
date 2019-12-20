@@ -48,13 +48,16 @@ const LocationOfProperty = ({
   };
 
   const handleChange = () => {
-    setInputState({
-      ...inputState,
-      locationOfProperty: zipCode
-    });
-    // Cookies.set("location", zipCode);
-    setPage("amount");
-    setLoadingProgress(loadingProgress + 16);
+    if (zipCode !== "") {
+      setInputState({
+        ...inputState,
+        locationOfProperty: zipCode
+      });
+      setPage("amount");
+      setLoadingProgress(loadingProgress + 16);
+    } else {
+      alert("Vous devez renseigner un code postal ou une ville");
+    }
   };
 
   return (

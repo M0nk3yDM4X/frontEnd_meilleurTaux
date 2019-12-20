@@ -25,17 +25,21 @@ const ProjectAmount = ({
   let total = Number(estimatedAmount) + Number(works) + Number(notaryFees);
 
   const handleChange = () => {
-    setInputState({
-      ...inputState,
-      amount: {
-        estimated: estimatedAmount,
-        works: works,
-        notarial: notaryFees,
-        total: total
-      }
-    });
-    setLoadingProgress(loadingProgress + 17);
-    setPage("contactInfos");
+    if (estimatedAmount > 0) {
+      setInputState({
+        ...inputState,
+        amount: {
+          estimated: estimatedAmount,
+          works: works,
+          notarial: notaryFees,
+          total: total
+        }
+      });
+      setLoadingProgress(loadingProgress + 17);
+      setPage("contactInfos");
+    } else {
+      alert("Vous devez renseigner le champ montant estimé");
+    }
   };
 
   return (

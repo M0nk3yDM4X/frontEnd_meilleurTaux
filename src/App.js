@@ -153,7 +153,6 @@ const App = () => {
             </div>
           </Route>
         </Switch>
-        {/* <ProgressBar loadingProgress={loadingProgress} /> */}
       </Router>
     </div>
   );

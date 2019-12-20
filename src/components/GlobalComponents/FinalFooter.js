@@ -10,9 +10,10 @@ const FinalFooter = ({ finish }) => {
           alignItems: "center",
           backgroundColor: "orange",
           width: "166px",
-          height: "36px",
+          height: "50px",
           borderRadius: "20px",
-          cursor: "pointer"
+          cursor: "pointer",
+          textAlign: "center"
         }}
       >
         <span onClick={finish}>Retournez à la page d'accueil</span>
