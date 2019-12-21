@@ -5,7 +5,9 @@ import ProgressBar from "./ProgressBar.js";
 const Footer = ({ prevFunc, nextFunc, loadingProgress }) => {
   return (
     <div className="footer">
-      <span className="footerBack">Précédent</span>
+      <span className="footerBack" onClick={prevFunc}>
+        Précédent
+      </span>
       <ProgressBar loadingProgress={loadingProgress} />
       <div className="footerNext">
         <span onClick={nextFunc}>Suivant</span>
