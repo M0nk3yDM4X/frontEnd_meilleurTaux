@@ -57,7 +57,7 @@ const App = () => {
     Cookies.set("generalState", inputState);
   }
 
-  console.log("inputState here >>>", inputState);
+  // console.log("inputState here >>>", inputState);
 
   return (
     <div>

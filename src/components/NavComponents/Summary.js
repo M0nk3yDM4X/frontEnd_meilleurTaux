@@ -4,8 +4,6 @@ import Cookies from "js-cookie";
 import FinalFooter from "../GlobalComponents/FinalFooter.js";
 
 const Summary = ({ projectId, setPage }) => {
-  console.log("ICI PROJECTID, REPONDEZ >>>", projectId);
-
   const handleChange = () => {
     Cookies.remove("actualPage");
     Cookies.remove("generalState");

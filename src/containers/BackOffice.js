@@ -11,7 +11,6 @@ const BackOffice = () => {
 
   const fetchData = async () => {
     const response = await axios.get(Url.url + "/immoProject/readAll");
-    console.log(response.data);
     setData(response.data);
     setIsLoading(false);
   };

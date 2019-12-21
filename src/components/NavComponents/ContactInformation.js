@@ -14,8 +14,6 @@ const ContactInformation = ({
 }) => {
   const [acceptMail, setAcceptMail] = useState(false);
 
-  console.log("accepting email", acceptMail);
-
   const fetchData = async () => {
     const response = await axios.post(Url.url + "/immoProject/new", {
       ...inputState
