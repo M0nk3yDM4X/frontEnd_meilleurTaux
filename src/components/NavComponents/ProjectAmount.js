@@ -25,8 +25,8 @@ const ProjectAmount = ({ setPage, inputState, setInputState }) => {
         amount: {
           estimated: estimatedAmount,
           works: works,
-          notarial: notaryFees,
-          total: total
+          notarial: notaryFees.toFixed(0),
+          total: total.toFixed(0)
         }
       });
       setPage("contactInfos");
@@ -87,7 +87,13 @@ const ProjectAmount = ({ setPage, inputState, setInputState }) => {
             <div className="questionContainer">
               <span>Budget total estimé du projet</span>
             </div>
-            <input className="response" type="Number" value={total} readOnly />€
+            <input
+              className="response"
+              type="Number"
+              value={total.toFixed(0)}
+              readOnly
+            />
+            €
           </div>
         </div>
       </div>

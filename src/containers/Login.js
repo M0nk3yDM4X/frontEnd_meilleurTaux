@@ -5,35 +5,11 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "85vh"
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-evenly",
-          alignItems: "center",
-          height: "300px",
-          width: "500px",
-          backgroundColor: "orange"
-        }}
-      >
+    <div className="loginContainer">
+      <div className="loginCard">
         <span>Coucou vous êtes sur le login du backoffice</span>
         <input
-          style={{
-            margin: "0",
-            padding: "5px",
-            border: "none",
-            borderRadius: "5px",
-            fontFamily: "Oswald"
-          }}
+          className="loginInput"
           type="password"
           placeholder="Se connecter"
           value={password}

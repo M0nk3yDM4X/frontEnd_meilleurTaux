@@ -12,7 +12,6 @@ const ContactInformation = ({
   inputState,
   setProjectId
 }) => {
-  const [email, setEmail] = useState("");
   const [acceptMail, setAcceptMail] = useState(false);
 
   console.log("accepting email", acceptMail);
@@ -58,7 +57,6 @@ const ContactInformation = ({
               placeholder="Renseignez votre e-mail ici"
               className="emailInput"
               onChange={event => {
-                setEmail(event.target.value);
                 setInputState({
                   ...inputState,
                   email: event.target.value
@@ -68,7 +66,7 @@ const ContactInformation = ({
           </div>
           <div className="answersInputContainerOdd">
             <input
-              style={{ margin: "0", padding: "5px" }}
+              className="checkboxInput"
               type="checkbox"
               value={acceptMail}
               onChange={() => {

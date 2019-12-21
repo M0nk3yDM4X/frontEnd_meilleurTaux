@@ -3,13 +3,7 @@ import React from "react";
 import RadioInput from "../GlobalComponents/RadioInput.js";
 import Footer from "../GlobalComponents/Footer.js";
 
-const TypeOfProperty = ({
-  setPage,
-  setInputState,
-  inputState,
-  loadingProgress,
-  setLoadingProgress
-}) => {
+const TypeOfProperty = ({ setPage, setInputState, inputState }) => {
   const valMaison = "Maison";
   const valAppart = "Appartement";
 

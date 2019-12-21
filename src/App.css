@@ -1,25 +1,14 @@
-/* select::-ms-expand {
-  display: none;
+a {
+  text-decoration: none;
+  color: black;
 }
+
+input {
+  outline: none;
+}
+
 select {
-  -webkit-appearance: none;
-  appearance: none;
-} */
-
-.progress {
-  position: relative;
-  height: 20px;
-  width: 350px;
-  border-radius: 50px;
-  border: 1px solid #333;
-  margin: 0 auto;
-}
-
-.filler {
-  background-color: #f49e25;
-  height: 100%;
-  border-radius: inherit;
-  transition: width 0.2s ease-in;
+  outline: none;
 }
 
 .wrapper {
@@ -40,6 +29,12 @@ select {
   justify-content: space-between;
   margin: 0 50px;
   width: 100%;
+}
+
+.headerLogoTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .logo {
@@ -161,7 +156,6 @@ select {
   background-color: white;
   border: 1px solid #f6b04d;
   box-shadow: 0px 2px #f5b14e;
-  outline: none;
   border-radius: 5px;
   padding: 5px 10px;
   margin-bottom: 4px;
@@ -174,7 +168,6 @@ select {
   font-weight: 500;
   font-size: 18px;
   background-color: lightgrey;
-  outline: none;
   padding: 5px 10px;
   margin-bottom: 5px;
   border: none;
@@ -209,6 +202,11 @@ select {
   object-fit: contain;
 }
 
+.checkboxInput {
+  margin: 0;
+  padding: 5px;
+}
+
 .emailInput {
   width: 295px;
   font-family: Oswald;
@@ -217,7 +215,6 @@ select {
   background-color: white;
   border: 1px solid #f6b04d;
   box-shadow: 0px 2px #f5b14e;
-  outline: none;
   border-radius: 5px;
   padding: 5px 10px;
   margin-bottom: 4px;
@@ -229,6 +226,82 @@ select {
   height: 15vh;
   justify-content: space-between;
   align-items: center;
+}
+
+.footerBack {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.footerNext {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: orange;
+  width: 166px;
+  height: 36px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.finalFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: orange;
+  width: 166px;
+  height: 50px;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.progress {
+  position: relative;
+  height: 20px;
+  width: 350px;
+  border-radius: 50px;
+  border: 3px solid lightGrey;
+  margin: 0 auto;
+}
+
+.filler {
+  background-color: #f49e25;
+  height: 100%;
+  border-radius: inherit;
+  transition: width 0.2s ease-in;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+}
+
+.loginCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 300px;
+  width: 500px;
+  background-color: orange;
+}
+
+.loginInput {
+  margin: 0;
+  padding: 5px;
+  border: none;
+  font-family: Oswald;
+}
+
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 85vh;
 }
 
 .tableLinesContainer {
@@ -265,4 +338,72 @@ select {
   text-align: center;
   color: #f49e25;
   font-weight: 900;
+}
+
+.demandDetailsPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 78vh;
+  padding: 0 30px 30px 30px;
+}
+
+.detailsCard {
+  display: flex;
+  flex-direction: column;
+  background-color: lightGrey;
+  width: 50%;
+  height: 100%;
+  border: 4px solid orange;
+  border-radius: 5px;
+  box-shadow: 5px 5px lightGrey;
+}
+
+.detailsCardHeader {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+.detailsBackTag {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+}
+
+.detailsClosingTag {
+  margin-right: 10px;
+}
+
+.detailsContent {
+  display: flex;
+  flex: 1;
+}
+
+.detailsContentTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 10px;
+  border-right: 1px solid black;
+}
+
+.detailsTitle {
+  padding: 4px;
+  border: 2px solid orange;
+  border-radius: 5px;
+}
+
+.detailsContentInfos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex: 1;
+  padding: 0 10px;
 }

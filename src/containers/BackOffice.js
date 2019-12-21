@@ -27,15 +27,7 @@ const BackOffice = () => {
           <span>Chargement</span>
         </>
       ) : (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "85vh"
-          }}
-        >
+        <div className="tableContainer">
           <div className="tableLineContainer">
             <TableLine bold={true} value={"Localisation"} />
             <TableLine bold={true} value={"Adresse e-mail"} />

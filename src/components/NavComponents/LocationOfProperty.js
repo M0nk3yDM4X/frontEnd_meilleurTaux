@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import Cookies from "js-cookie";
 
 import Footer from "../GlobalComponents/Footer.js";
 
@@ -27,7 +26,7 @@ const LocationOfProperty = ({ setPage, setInputState, inputState }) => {
     array.push(city);
   }
 
-  const dropDownArray = [<option value={undefined}></option>];
+  const dropDownArray = [<option>Sélectionnez votre choix</option>];
 
   for (let i = 0; i < array.length; i++) {
     dropDownArray.push(

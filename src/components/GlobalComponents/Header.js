@@ -6,13 +6,7 @@ const Header = () => {
   return (
     <div className="header">
       <div className="wrapMyHeader">
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start"
-          }}
-        >
+        <div className="headerLogoTitle">
           <Link to="/">
             <img className="logo" src={Logo} alt="meilleur-taux" />
           </Link>

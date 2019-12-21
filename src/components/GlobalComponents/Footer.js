@@ -5,25 +5,9 @@ import ProgressBar from "./ProgressBar.js";
 const Footer = ({ prevFunc, nextFunc, loadingProgress }) => {
   return (
     <div className="footer">
-      <span
-        style={{ textDecoration: "underline", cursor: "pointer" }}
-        onClick={prevFunc}
-      >
-        Précédent
-      </span>
+      <span className="footerBack">Précédent</span>
       <ProgressBar loadingProgress={loadingProgress} />
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "orange",
-          width: "166px",
-          height: "36px",
-          borderRadius: "20px",
-          cursor: "pointer"
-        }}
-      >
+      <div className="footerNext">
         <span onClick={nextFunc}>Suivant</span>
       </div>
     </div>
