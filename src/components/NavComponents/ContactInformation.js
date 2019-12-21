@@ -22,7 +22,7 @@ const ContactInformation = ({
   };
 
   const handleFinish = () => {
-    if (acceptMail === true) {
+    if (acceptMail === true && inputState.email !== "") {
       setPage("summary");
       fetchData();
     } else {
@@ -54,6 +54,8 @@ const ContactInformation = ({
             <input
               placeholder="Renseignez votre e-mail ici"
               className="emailInput"
+              type="email"
+              value={inputState.email}
               onChange={event => {
                 setInputState({
                   ...inputState,

@@ -19,10 +19,17 @@ import ContactInformation from "./components/NavComponents/ContactInformation.js
 import Summary from "./components/NavComponents/Summary.js";
 
 const App = () => {
+  // We set actualPage as the const of the value from cookie's name "actualPage"
   const actualPage = Cookies.get("actualPage");
 
+  // We set a state page to manage the changing pages, initialized at the value of const actualPage
   const [page, setPage] = useState(actualPage);
+
+  // We set a state project ID to store the database id and to use it on the final page
   const [projectId, setProjectId] = useState("");
+
+  // Setting cookie "actualPage", saying that if undefined, the starting page will be the home, and the value of cookie will be home
+  // Else the value of the cookie will be the value of state page already visited
 
   if (actualPage === undefined) {
     setPage("home");
@@ -30,6 +37,8 @@ const App = () => {
   } else {
     Cookies.set("actualPage", page);
   }
+
+  // We declare an object initialState with some empty keys
 
   const initialState = {
     typeOfProperty: "",
@@ -46,9 +55,16 @@ const App = () => {
     email: ""
   };
 
+  // We set memoryCookie as the const of the value from cookie's name "generalState"
+
   const memoryCookie = Cookies.getJSON("generalState");
 
+  // We set a state inputState to manage the object to saved and send to our backend, initialized at the value of const memoryCookie
+
   const [inputState, setInputState] = useState(memoryCookie);
+
+  // Setting cookie "memoryCookie", saying that if undefined, the inputState value will be our initialObject with empty keys to fill
+  // Else the value of the cookie will be the value of state inputState already filled
 
   if (memoryCookie === undefined) {
     setInputState(initialState);
@@ -58,6 +74,10 @@ const App = () => {
   }
 
   // console.log("inputState here >>>", inputState);
+
+  // Our navigation here is done by changing the state page
+
+  // Exception to the back-office were it's a navigation from Route to another Route by using <Link to=""></Link>
 
   return (
     <div>
