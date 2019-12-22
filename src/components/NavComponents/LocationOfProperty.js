@@ -13,10 +13,14 @@ const LocationOfProperty = ({ setPage, setInputState, inputState }) => {
 
   // fetchData function which is an axios.get call of vicopo api (zipcode & cities)
   const fetchData = async () => {
-    const response = await axios.get(
-      "https://vicopo.selfbuild.fr/cherche/" + zipCode // adding value of zipCode state to our search
-    );
-    setList(response.data.cities);
+    try {
+      const response = await axios.get(
+        "https://vicopo.selfbuild.fr/cherche/" + zipCode // adding value of zipCode state to our search
+      );
+      setList(response.data.cities);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // Setting useEffect to call fetchData every time that zipCode state will change

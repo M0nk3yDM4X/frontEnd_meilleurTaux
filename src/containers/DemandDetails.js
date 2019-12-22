@@ -6,10 +6,19 @@ import Url from "../url.js";
 import DemandDetailsTitleInfos from "../components/BackOffice/DemandDetailsTitleInfos.js";
 
 const DemandDetails = () => {
+  // We get the id from the Link by using useParams
   const { id } = useParams();
 
+  // We set state isLoading equal to true to manage the loading of our data
   const [isLoading, setIsLoading] = useState(true);
+
+  // We set state data to fill data from our dataBase
   const [data, setData] = useState();
+
+  // Function fetchData which is an axios.get call to our dataBase with the id of the demand
+  // The response of our backEnd will be set in our state data
+  // This response will be only the detail of one demand, the demand with de id send
+  // And when it's finished, loadingState will be false
 
   const fetchData = async () => {
     try {
@@ -20,6 +29,8 @@ const DemandDetails = () => {
       console.log(error);
     }
   };
+
+  // Function deleteThisDemand is an axios.post call to remove one demand.
 
   const deleteThisDemand = async () => {
     try {
@@ -33,6 +44,8 @@ const DemandDetails = () => {
       console.log(error);
     }
   };
+
+  // useEffect in order to call fetchData function, at every load of the page
 
   useEffect(() => {
     fetchData();

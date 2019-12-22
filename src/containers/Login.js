@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  // We set a state password to listen input login
   const [password, setPassword] = useState("");
 
   return (
@@ -13,10 +14,15 @@ const Login = () => {
           type="password"
           placeholder="Se connecter"
           value={password}
+          // Setting new value of state password by the value that the user will type on the input
           onChange={event => {
             setPassword(event.target.value);
           }}
         />
+        {/* As we know the password of the exercise */}
+        {/* Saying that if value of password state equal to "tothemoon"  the connection button will be showed*/}
+        {/* Certainly this is not secure at all, and normally we have to create a /login road on our backend, and call it from our front by axios.get call  */}
+        {/* In order to compare salt hash and token based on our dataBase from a signUp */}
         {password === "tothemoon" ? (
           <Link to="/back-office">
             <span>se connecter</span>

@@ -18,10 +18,14 @@ const ContactInformation = ({
   // Function fetchData which is an axios.post call in order to send users choices to our backEnd
   // We set the value of projectID state from App.js by the response Id value from our backEnd
   const fetchData = async () => {
-    const response = await axios.post(Url.url + "/immoProject/new", {
-      ...inputState
-    });
-    await setProjectId(response.data._id);
+    try {
+      const response = await axios.post(Url.url + "/immoProject/new", {
+        ...inputState
+      });
+      await setProjectId(response.data._id);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // Function handleChange to listen the input email
