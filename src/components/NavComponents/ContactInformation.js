@@ -12,8 +12,11 @@ const ContactInformation = ({
   inputState,
   setProjectId
 }) => {
+  // We set a state to manage the checkBox input in order to know if user accept or no to receive e-mail
   const [acceptMail, setAcceptMail] = useState(false);
 
+  // Function fetchData which is an axios.post call in order to send users choices to our backEnd
+  // We set the value of projectID state from App.js by the response Id value from our backEnd
   const fetchData = async () => {
     const response = await axios.post(Url.url + "/immoProject/new", {
       ...inputState
@@ -21,12 +24,18 @@ const ContactInformation = ({
     await setProjectId(response.data._id);
   };
 
+  // Function handleChange to listen the input email
+  // Spread operator to copy our state, and add the new value to our key email
+
   const handleChange = event => {
     setInputState({
       ...inputState,
       email: event.target.value
     });
   };
+
+  // Function handleFinish which will call our fetchData function, and set the nextPage
+  // Only if the acceptMail value is true and the input email isn't empty
 
   const handleFinish = () => {
     if (acceptMail === true && inputState.email !== "") {
@@ -88,6 +97,8 @@ const ContactInformation = ({
             setPage("amount");
           }}
           loadingProgress={93}
+          // We are sending nextFunc equal to the handleFinish function call, Footer component will receive this props
+          // So, onClick of the next button will call handleFinish function
           nextFunc={handleFinish}
         />
       </div>

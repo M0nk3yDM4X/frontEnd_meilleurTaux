@@ -28,6 +28,7 @@ const ProjectAmount = ({ setPage, inputState, setInputState }) => {
 
   // Function handleChange contains a condition
   // If the value of estimatedAmount is > to 0
+  // Copying inputState with a spread operator in order to add a change
   // setInputState will receive the key amount with all keys (from the 4 inputs of this page) in it
   // And the page will be change to the next one
   // Else an alert will be displayed

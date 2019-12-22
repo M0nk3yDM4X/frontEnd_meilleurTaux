@@ -64,6 +64,7 @@ const LocationOfProperty = ({ setPage, setInputState, inputState }) => {
 
   // Function handleChange contains a condition
   // If the value of zipCode is different to ""
+  // Copying inputState with a spread operator in order to add a change
   // setInputState will receive the key locationOfProperty with the value of zipCode state
   // And the page will be change to the next one
   // Else an alert will be displayed

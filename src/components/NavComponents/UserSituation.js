@@ -29,7 +29,7 @@ const UserSituation = ({ setPage, inputState, setInputState }) => {
           {/* Call of the component RadioInput, which is actually a radio input inside a label  */}
           {/* We are sending by props some things: */}
           {/* a name, a value, the key corresponding to this page of our state inputState from App.js */}
-          {/* And the most important, a function which will change our state inputState by the click  */}
+          {/* And the most important, a function which will change our state inputState by copying it with a spread operator  */}
           {/* The value sended to our state will be the value of the input clicked  */}
           {/* This function manage also the state page, because if a choice is clicked, the user go the next page  */}
           <RadioInput

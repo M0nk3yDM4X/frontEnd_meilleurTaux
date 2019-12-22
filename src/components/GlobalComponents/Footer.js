@@ -9,8 +9,8 @@ const Footer = ({ prevFunc, nextFunc, loadingProgress }) => {
         Précédent
       </span>
       <ProgressBar loadingProgress={loadingProgress} />
-      <div className="footerNext">
-        <span onClick={nextFunc}>Suivant</span>
+      <div onClick={nextFunc} className="footerNext">
+        <span>Suivant</span>
       </div>
     </div>
   );
