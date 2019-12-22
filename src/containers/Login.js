@@ -21,7 +21,7 @@ const Login = () => {
         />
         {/* As we know the password of the exercise */}
         {/* Saying that if value of password state equal to "tothemoon"  the connection button will be showed*/}
-        {/* Certainly this is not secure at all, and normally we have to create a /login road on our backend, and call it from our front by axios.get call  */}
+        {/* Certainly this is not secure at all, and normally we have to create a /login route on our backend, and call it from our front by axios.post call  */}
         {/* In order to compare salt hash and token based on our dataBase from a signUp */}
         {password === "tothemoon" ? (
           <Link to="/back-office">
