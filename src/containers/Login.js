@@ -7,7 +7,7 @@ const Login = () => {
   return (
     <div className="loginContainer">
       <div className="loginCard">
-        <span>Coucou vous êtes sur le login du backoffice</span>
+        <span>Veuillez renseigner le mot de passe</span>
         <input
           className="loginInput"
           type="password"

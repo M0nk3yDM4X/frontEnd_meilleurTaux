@@ -21,6 +21,13 @@ const ContactInformation = ({
     await setProjectId(response.data._id);
   };
 
+  const handleChange = event => {
+    setInputState({
+      ...inputState,
+      email: event.target.value
+    });
+  };
+
   const handleFinish = () => {
     if (acceptMail === true && inputState.email !== "") {
       setPage("summary");
@@ -56,12 +63,7 @@ const ContactInformation = ({
               className="emailInput"
               type="email"
               value={inputState.email}
-              onChange={event => {
-                setInputState({
-                  ...inputState,
-                  email: event.target.value
-                });
-              }}
+              onChange={handleChange}
             />
           </div>
           <div className="answersInputContainerOdd">
