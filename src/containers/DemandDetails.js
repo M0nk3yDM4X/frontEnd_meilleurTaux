@@ -56,13 +56,7 @@ const DemandDetails = () => {
                   Pour supprimer cette demande, cliquez ici :
                 </span>
                 <Link to="/back-office">
-                  <span
-                    onClick={() => {
-                      deleteThisDemand();
-                    }}
-                  >
-                    X
-                  </span>
+                  <span onClick={deleteThisDemand}>X</span>
                 </Link>
               </div>
             </div>

@@ -17,7 +17,7 @@ const BackOffice = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [data]);
 
   return (
     <div>
