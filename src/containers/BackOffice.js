@@ -21,14 +21,10 @@ const BackOffice = () => {
     setIsLoading(false);
   };
 
-  // useEffect in order to call fetchData function, at every load of the page
+  // useEffect in order to call fetchData function, at every load of the page, and every change in data state
 
   useEffect(() => {
     fetchData();
-  }, []);
-
-  useEffect(() => {
-    console.log(data);
   }, [data]);
 
   return (
