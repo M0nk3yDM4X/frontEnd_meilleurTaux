@@ -15,6 +15,8 @@ const ContactInformation = ({
   // We set a state to manage the checkBox input in order to know if user accept or no to receive e-mail
   const [acceptMail, setAcceptMail] = useState(false);
 
+  const verifyEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
   // Function fetchData which is an axios.post call in order to send users choices to our backEnd
   // We set the value of projectID state from App.js by the response Id value from our backEnd
   const fetchData = async () => {
@@ -36,6 +38,14 @@ const ContactInformation = ({
       ...inputState,
       email: event.target.value
     });
+  };
+
+  // Function verify which gonna check if email is on the classic email model or not
+
+  const verify = () => {
+    if (verifyEmail.test(inputState.email) === false) {
+      alert("Renseignez une adresse e-mail valide svp");
+    }
   };
 
   // Function handleFinish which will call our fetchData function, and set the nextPage
@@ -77,6 +87,7 @@ const ContactInformation = ({
               type="email"
               value={inputState.email}
               onChange={handleChange}
+              onBlur={verify}
             />
           </div>
           <div className="answersInputContainerOdd">
